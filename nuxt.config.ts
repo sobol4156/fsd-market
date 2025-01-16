@@ -5,5 +5,12 @@ export default defineNuxtConfig({
   alias: {
     '@widgets': './widgets',
     '@app': './app',
-  }
+  },
+  
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {}
+    }
+  },
 })

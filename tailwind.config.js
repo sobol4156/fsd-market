@@ -1,13 +1,14 @@
 /* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
-    "./components/**/*.{js,vue,ts}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
-    "./app.vue",
-    "./error.vue",
+    './app/*.{vue,js,ts}',
+    './shared/**/*.vue',
+    './widgets/**/*.vue',
+    './features/**/*.vue',
+    './entities/**/*.vue',
+    './pages/**/*.vue',
+    './nuxt.config.{js,ts}'
   ],
   theme: {
     extend: {

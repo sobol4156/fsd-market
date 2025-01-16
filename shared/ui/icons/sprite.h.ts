@@ -1,9 +1,12 @@
 export interface SpritesMap {
-    'info': 'profile' | 'shopping-cart'
+    'brand': 'logo',
+'info': 'profile' | 'shopping-cart'
   }
 export const SPRITES_META: {
-        'info': Array<'profile' | 'shopping-cart'>
+        'brand': Array<'logo'>,
+'info': Array<'profile' | 'shopping-cart'>
       } = {
-    'info': ['profile',
+    'brand': ['logo'],
+'info': ['profile',
 'shopping-cart']
   };

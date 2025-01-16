@@ -16,6 +16,6 @@ const props = defineProps<IconProps<keyof SpritesMap>>();
 
 <style scoped lang="scss">
 .icon {
-  @apply ease-linear duration-100 pointer-events-none;
+  @apply ease-linear duration-100;
 }
 </style>

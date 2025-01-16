@@ -23,7 +23,7 @@ import { Icon } from '@/shared/ui/icons';
   }
 
   &__profile{
-    @apply cursor-pointer;
+    @apply cursor-pointer fill-[white];
   }
 
   &__logo{

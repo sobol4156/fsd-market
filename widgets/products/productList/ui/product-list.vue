@@ -9,3 +9,11 @@
     </template>
   </div>
 </template>
+
+<style scoped lang="scss">
+.product-list{
+  @apply grid gap-[32px];
+  grid-template-columns: repeat(4, minmax(200px, 350px));
+  
+}
+</style>

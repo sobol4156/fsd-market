@@ -1,9 +1,6 @@
 @layer components {
   .container {
-    @apply mx-auto w-full max-w-[1600px] px-[48px];
-    @apply xl:max-w-[1440px] md:max-w-full;
-    @media screen and (max-width: 1092px) {
-      @apply px-4;
-    }
+    @apply mx-auto w-full max-w-[1600px] px-[32px];
+    @apply md:px-[16px]
   }
 }

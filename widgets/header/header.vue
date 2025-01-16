@@ -3,7 +3,7 @@ import { Icon } from '@/shared/ui/icons';
 </script>
 
 <template>
-  <div class="header">
+  <div class="header container">
     <div class="header__left">
       <Icon class="header__logo" name="logo" type="brand" :w="70" :h="70" />
     </div>
@@ -16,7 +16,7 @@ import { Icon } from '@/shared/ui/icons';
 
 <style scoped lang="scss">
 .header{
-  @apply flex justify-between border-b-[1px] px-[40px];
+  @apply flex justify-between border-b-[1px];
 
   &__right{
     @apply flex gap-[10px] items-center;

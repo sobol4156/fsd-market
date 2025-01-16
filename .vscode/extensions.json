@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "vue.vscode-typescript-vue-plugin",
+    "cpylua.language-postcss",
+    "csstools.postcss",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "vue.volar",
+    "austenc.tailwind-docs",
+    "bradlc.vscode-tailwindcss",
+    "box-of-hats.bemhelper",
+    "sdras.vue-vscode-snippets"
+  ]
+}

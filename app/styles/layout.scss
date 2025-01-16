@@ -1,8 +1,9 @@
 @layer components {
   .container {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1600px;
-    padding: 0 48px;
+    @apply mx-auto w-full max-w-[1600px] px-[48px];
+    @apply xl:max-w-[1440px] md:max-w-full;
+    @media screen and (max-width: 1092px) {
+      @apply px-4;
+    }
   }
 }

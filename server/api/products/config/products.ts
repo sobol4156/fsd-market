@@ -3,10 +3,10 @@ import { Product } from "~/entities/product/model";
 export const MOCK_PRODUCTS: Product[] = [{
   id: 1,
   images: [{
-    src: "https://steamuserimages-a.akamaihd.net/ugc/1931506893351769772/52CC7C2E9AA09EAE62004F073EF60875E9D95037/",
+    src: "/knifes/bowie-knife-fade-2.png",
     alt: "Картинка",
   }],
-  title: 'Falchion Knife',
+  title: 'Bowie Knife',
   oldPrice: 190,
   newPrice: 149,
   rating: 3
@@ -93,62 +93,62 @@ export const MOCK_PRODUCTS: Product[] = [{
 },{
   id: 10,
   images: [{
-    src: "https://steamuserimages-a.akamaihd.net/ugc/1931506893351769772/52CC7C2E9AA09EAE62004F073EF60875E9D95037/",
+    src: "/knifes/karambit-knife-red.png",
     alt: "Картинка",
   }],
-  title: 'Falchion Knife',
-  oldPrice: 19,
-  newPrice: 15,
-  rating: 3
+  title: 'Karambit',
+  oldPrice: 290,
+  newPrice: 279,
+  rating: 4
 },{
   id: 11,
   images: [{
-    src: "https://steamuserimages-a.akamaihd.net/ugc/1931506893351769772/52CC7C2E9AA09EAE62004F073EF60875E9D95037/",
+    src: "/knifes/bowie-knife-fade.png",
     alt: "Картинка",
   }],
-  title: 'Falchion Knife',
-  oldPrice: 19,
-  newPrice: 15,
+  title: 'Bowie Knife',
+  oldPrice: 199,
+  newPrice: 185,
   rating: 3
 },{
   id: 12,
   images: [{
-    src: "https://steamuserimages-a.akamaihd.net/ugc/1931506893351769772/52CC7C2E9AA09EAE62004F073EF60875E9D95037/",
+    src: "/knifes/skeleton-knife.png",
     alt: "Картинка",
   }],
-  title: 'Falchion Knife',
-  oldPrice: 19,
-  newPrice: 15,
-  rating: 3
+  title: 'Skeleton Knife',
+  oldPrice: 249,
+  newPrice: 230,
+  rating: 4
 },{
   id: 13,
   images: [{
-    src: "https://steamuserimages-a.akamaihd.net/ugc/1931506893351769772/52CC7C2E9AA09EAE62004F073EF60875E9D95037/",
+    src: "/knifes/butterfly-knife-blue.png",
     alt: "Картинка",
   }],
-  title: 'Falchion Knife',
-  oldPrice: 19,
-  newPrice: 15,
-  rating: 3
+  title: 'Butterfly Knife',
+  oldPrice: 169,
+  newPrice: 150,
+  rating: 2
 },{
   id: 14,
   images: [{
-    src: "https://steamuserimages-a.akamaihd.net/ugc/1931506893351769772/52CC7C2E9AA09EAE62004F073EF60875E9D95037/",
+    src: "/knifes/butterfly-knife-dark.png",
     alt: "Картинка",
   }],
-  title: 'Falchion Knife',
-  oldPrice: 19,
-  newPrice: 15,
-  rating: 3
+  title: 'Butterfly Knife',
+  oldPrice: 249,
+  newPrice: 229,
+  rating: 5
 },{
   id: 15,
   images: [{
-    src: "https://steamuserimages-a.akamaihd.net/ugc/1931506893351769772/52CC7C2E9AA09EAE62004F073EF60875E9D95037/",
+    src: "/knifes/paracord-knife.png",
     alt: "Картинка",
   }],
-  title: 'Falchion Knife',
-  oldPrice: 19,
-  newPrice: 15,
-  rating: 3
+  title: 'Paracord Knife Fade',
+  oldPrice: 215,
+  newPrice: 199,
+  rating: 4
 },
 ]

@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { ImagesSwiper } from "~/shared/ui/icons/swipers";
+import { ImagesSwiper } from "~/shared/ui/swipers";
 import { EAppPixelSize } from "@/shared/lib/types/app";
 import { RatingStars } from "~/shared/ui/rating-stars";
 

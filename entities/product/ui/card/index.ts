@@ -1,3 +1,3 @@
-import productCard from "./product-card.vue";
+import ProductCard from "./product-card.vue";
 
-export { productCard }
+export { ProductCard }

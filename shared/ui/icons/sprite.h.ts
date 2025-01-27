@@ -1,12 +1,16 @@
 export interface SpritesMap {
-    'brand': 'logo',
+    'action': 'caret-left' | 'caret-right',
+'brand': 'logo',
 'info': 'profile' | 'shopping-cart' | 'star-empty' | 'star-fill'
   }
 export const SPRITES_META: {
-        'brand': Array<'logo'>,
+        'action': Array<'caret-left' | 'caret-right'>,
+'brand': Array<'logo'>,
 'info': Array<'profile' | 'shopping-cart' | 'star-empty' | 'star-fill'>
       } = {
-    'brand': ['logo'],
+    'action': ['caret-left',
+'caret-right'],
+'brand': ['logo'],
 'info': ['profile',
 'shopping-cart',
 'star-empty',

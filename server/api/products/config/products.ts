@@ -151,4 +151,197 @@ export const MOCK_PRODUCTS: Product[] = [{
   newPrice: 199,
   rating: 4
 },
+{
+  id: 16,
+  images: [{
+    src: "/guns/ak47-1.png",
+    alt: "Картинка",
+  }],
+  title: 'AK47 Elite Build',
+  oldPrice: 20,
+  newPrice: 18,
+  rating: 1
+},
+{
+  id: 17,
+  images: [
+    {
+      src: "/guns/awp-dragon-lore.png",
+      alt: "Картинка",
+    },
+  ],
+  title: "AWP Dragon Lore",
+  oldPrice: 1500,
+  newPrice: 1400,
+  rating: 5,
+},
+{
+  id: 18,
+  images: [
+    {
+      src: "/guns/m4a4-howl.png",
+      alt: "Картинка",
+    },
+  ],
+  title: "M4A4 Howl",
+  oldPrice: 1300,
+  newPrice: 1200,
+  rating: 5,
+},
+{
+  id: 19,
+  images: [
+    {
+      src: "/guns/glock-fade.png",
+      alt: "Картинка",
+    },
+  ],
+  title: "Glock Fade",
+  oldPrice: 300,
+  newPrice: 280,
+  rating: 4,
+},
+{
+  id: 20,
+  images: [
+    {
+      src: "/guns/usp-s-kill-confirmed.png",
+      alt: "Картинка",
+    },
+  ],
+  title: "USP-S Kill Confirmed",
+  oldPrice: 400,
+  newPrice: 370,
+  rating: 4,
+},
+{
+  id: 21,
+  images: [
+    {
+      src: "/knifes/karambit-tiger-tooth.png",
+      alt: "Картинка",
+    },
+  ],
+  title: "Karambit Tiger Tooth",
+  oldPrice: 500,
+  newPrice: 480,
+  rating: 5,
+},
+{
+  id: 22,
+  images: [
+    {
+      src: "/knifes/m9-bayonet-fade.png",
+      alt: "Картинка",
+    },
+  ],
+  title: "M9 Bayonet Fade",
+  oldPrice: 600,
+  newPrice: 570,
+  rating: 5,
+},
+{
+  id: 23,
+  images: [
+    {
+      src: "/knifes/gut-knife-slaughter.png",
+      alt: "Картинка",
+    },
+  ],
+  title: "Gut Knife Slaughter",
+  oldPrice: 200,
+  newPrice: 180,
+  rating: 3,
+},
+{
+  id: 24,
+  images: [
+    {
+      src: "/knifes/navaja-knife-fade.png",
+      alt: "Картинка",
+    },
+  ],
+  title: "Navaja Knife Fade",
+  oldPrice: 100,
+  newPrice: 90,
+  rating: 2,
+},
+{
+  id: 25,
+  images: [
+    {
+      src: "/guns/sg553-integral.png",
+      alt: "Картинка",
+    },
+  ],
+  title: "SG553 Integral",
+  oldPrice: 75,
+  newPrice: 65,
+  rating: 3,
+},
+{
+  id: 26,
+  images: [
+    {
+      src: "/guns/desert-eagle-hypnotic.png",
+      alt: "Картинка",
+    },
+  ],
+  title: "Desert Eagle Hypnotic",
+  oldPrice: 110,
+  newPrice: 95,
+  rating: 4,
+},
+{
+  id: 27,
+  images: [
+    {
+      src: "/guns/famas-mecha.png",
+      alt: "Картинка",
+    },
+  ],
+  title: "FAMAS Mecha Industries",
+  oldPrice: 50,
+  newPrice: 45,
+  rating: 3,
+},
+{
+  id: 28,
+  images: [
+    {
+      src: "/knifes/talon-knife-fade.png",
+      alt: "Картинка",
+    },
+  ],
+  title: "Talon Knife Fade",
+  oldPrice: 700,
+  newPrice: 680,
+  rating: 5,
+},
+{
+  id: 29,
+  images: [
+    {
+      src: "/knifes/nomad-knife-blue.png",
+      alt: "Картинка",
+    },
+  ],
+  title: "Nomad Knife Blue Steel",
+  oldPrice: 350,
+  newPrice: 330,
+  rating: 4,
+},
+{
+  id: 30,
+  images: [
+    {
+      src: "/guns/dual-berettas-cobra.png",
+      alt: "Картинка",
+    },
+  ],
+  title: "Dual Berettas Cobra Strike",
+  oldPrice: 40,
+  newPrice: 35,
+  rating: 3,
+},
 ]

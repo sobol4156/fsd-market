@@ -14,14 +14,9 @@
 </template>
 
 <script setup lang="ts">
-
-interface IImage {
-  id: number,
-  src: string,
-  alt: string
-}
+import type { Images } from '~/entities/product/model';
 
 defineProps<{
-  images: IImage[]
+  images: Images[]
 }>()
 </script>

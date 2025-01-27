@@ -1,13 +1,46 @@
 <script setup lang="ts">
 import { ProductCard } from "~/entities/product";
+import Pagination from "~/shared/ui/pagination/pagination.vue";
+import { useProductStore, type Product } from "~/entities/product/model";
+import { SkeletonProduct } from "~/shared/ui/skeletons";
+
+const storeProduct = useProductStore();
+
+onServerPrefetch(async () => {
+  await checkingStore();
+});
+onMounted(async () => {
+  await checkingStore();
+});
+
+const checkingStore = async () => {
+  try {
+    if (!storeProduct.productList?.length) {
+      const { data, error } = await useFetch<Product[]>("/api/products");
+      if (error.value) {
+        console.error("Failed to fetch products:", error.value);
+        return;
+      }
+      if (data.value) {
+        storeProduct.setProductList(data.value);
+      }
+    }
+  } catch (err) {
+    console.error("An unexpected error occurred:", err);
+  }
+};
 </script>
 
 <template>
   <div class="product-list">
-    <template v-for="card in 20">
-      <ProductCard />
+    <template v-if="storeProduct.productList">
+      <ProductCard v-for="card in storeProduct.productList" :key="card.id" :product="card" />
+    </template>
+    <template v-else>
+      <SkeletonProduct v-for="i in 20" />
     </template>
   </div>
+  <Pagination />
 </template>
 
 <style scoped lang="scss">

@@ -16,15 +16,15 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 .order{
-  @apply flex gap-[20px] w-full;
+  @apply flex gap-[20px] px-[20px] items-center w-full bg-[--background-cart] mb-[10px];
   &__img{
     @apply w-[120px] h-[120px] object-contain;
   }
   &__title{
-    @apply text-[40px]
+    @apply text-[30px]
   }
   &__price{
-    @apply text-[28px]
+    @apply text-[28px] ml-auto;
   }
 }
 </style>

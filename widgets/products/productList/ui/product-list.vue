@@ -5,12 +5,28 @@ import { useProductStore, type Product } from "~/entities/product/model";
 import { SkeletonProduct } from "~/shared/ui/skeletons";
 
 const storeProduct = useProductStore();
+const currentPage = ref<number>(1);
+const countItemsOnPage: number = 16;
 
 onServerPrefetch(async () => {
   await checkingStore();
 });
 onMounted(async () => {
   await checkingStore();
+});
+
+const products = computed(() => {
+  return storeProduct.productList?.slice(
+    -countItemsOnPage + currentPage.value * countItemsOnPage,
+    countItemsOnPage * currentPage.value
+  );
+});
+
+const pages = computed(() => {
+  if (storeProduct.productList) {
+    return Math.ceil(storeProduct.productList?.length / countItemsOnPage);
+  }
+  return 0
 });
 
 const checkingStore = async () => {
@@ -33,14 +49,14 @@ const checkingStore = async () => {
 
 <template>
   <div class="product-list">
-    <template v-if="storeProduct.productList">
-      <ProductCard v-for="card in storeProduct.productList" :key="card.id" :product="card" />
+    <template v-if="products">
+      <ProductCard v-for="card in products" :key="card.id" :product="card" />
     </template>
     <template v-else>
-      <SkeletonProduct v-for="i in 20" />
+      <SkeletonProduct v-for="i in 16" />
     </template>
   </div>
-  <Pagination />
+  <Pagination :pages="pages" :currentPage="currentPage" @changePage="(page) => currentPage = page"/>
 </template>
 
 <style scoped lang="scss">

@@ -13,7 +13,7 @@
 
 <style scoped lang="scss">
 .skeleton-product {
-  @apply relative flex flex-col justify-between p-[10px] h-auto gap-[10px];
+  @apply relative h-[394px] flex flex-col justify-between p-[10px] gap-[10px];
 
 &__text{
   @apply flex flex-col gap-[5px];
@@ -26,7 +26,7 @@
     @apply w-[120px];
   }
   &__img {
-    @apply w-full h-[200px] object-cover rounded-[15px];
+    @apply w-full h-[250px] object-cover rounded-[15px];
   }
 }
 </style>

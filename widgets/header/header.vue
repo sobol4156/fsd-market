@@ -5,7 +5,7 @@ import { Icon } from '@/shared/ui/icons';
 <template>
   <div class="header container">
     <div class="header__left">
-      <Icon class="header__logo" name="logo" type="brand" :w="70" :h="70" />
+      <Icon class="header__logo" name="logo" type="brand" :w="70" :h="70" @click="navigateTo('/')" />
     </div>
     <div class="header__right">
       <Icon class="header__profile" name="profile" type="info" :w="30" :h="30" />

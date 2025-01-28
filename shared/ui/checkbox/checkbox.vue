@@ -34,7 +34,7 @@ defineEmits<CheckboxEmits>();
     }
 
     &--active {
-      @apply bg-[blue];
+      @apply bg-[--background-checkbox-active];
       svg {
         @apply fill-[white];
       }

@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import type { Product } from "~/entities/product";
+import type { DeleteEmit } from "../../model";
 
 const props = defineProps<{
   order: Product
 }>();
+defineEmits<DeleteEmit>();
+
 </script>
 
 <template>
-  <div class="order">
+  <div class="order" @click="$emit('delete-order', props.order.id)">
     <img class="order__img" :src="props.order.images[0].src" :alt="props.order.images[0].alt">
     <h4 class="order__title">{{ props.order.title }}</h4>
     <span class="order__price">{{props.order.newPrice}}$ <del>{{props.order.oldPrice}}$</del></span>

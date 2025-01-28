@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Images } from "~/entities/product/model";
+import type { Images } from "~/entities/product";
 
 defineProps<{
   images: Images[];

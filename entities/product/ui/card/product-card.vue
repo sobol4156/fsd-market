@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import { ImagesSwiper, RatingStars } from "~/shared/ui";
 import { EAppPixelSize } from "~/shared/lib/types/app";
-import type { Product } from "~/entities/product/model";
+import type { Product } from "~/entities/product";
 
 const props = defineProps<{ product: Product }>();
 </script>

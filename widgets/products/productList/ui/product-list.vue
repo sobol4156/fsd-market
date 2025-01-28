@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ProductCard } from "~/entities/product";
 import Pagination from "~/shared/ui/pagination/pagination.vue";
-import { useProductStore, type Product } from "~/entities/product/model";
+import { useProductStore, type Product } from "~/entities/product";
 import { SkeletonProduct } from "~/shared/ui/skeletons";
 
 const storeProduct = useProductStore();

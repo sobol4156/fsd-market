@@ -9,7 +9,7 @@ import { Icon } from '@/shared/ui/icons';
     </div>
     <div class="header__right">
       <Icon class="header__profile" name="profile" type="info" :w="30" :h="30" />
-      <Icon class="header__cart" name="shopping-cart" type="info" :w="30" :h="30" />
+      <Icon class="header__cart" name="shopping-cart" type="info" :w="30" :h="30"  @click="navigateTo('/cart')"/>
     </div>
   </div>
 </template>

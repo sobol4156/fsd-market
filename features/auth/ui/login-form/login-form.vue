@@ -1,20 +1,31 @@
 <script setup lang="ts">
 import { Input, Button } from '~/shared/ui';
 
-function onInput(value:string){
-  console.log(value)
+const formData = reactive({
+  email: '',
+  password: ''
+})
+
+const onInput = (value:string, field: keyof typeof formData) => {
+  formData[field] = value
 }
 
-function handlerSubmit(){
-  console.log()
+const handlerSubmit = async(e:Event) =>{
+  e.preventDefault()
+  console.log(formData)
+  const response = await $fetch(`/api/auth`, {
+    method: 'POST',
+    body: formData 
+  })
+  console.log(response)
 }
 </script>
 
 <template>
   <div class="login-form">
     <form  @submit="handlerSubmit">
-      <Input label="Email" name="email" @update:model-value="onInput"/>
-      <Input label="Password" name="password" @update:model-value="onInput"/>
+      <Input label="Email" name="email" @update:model-value="(val) => onInput(val, 'email')"/>
+      <Input label="Password" name="password" @update:model-value="(val) => onInput(val, 'password')"/>
       <Button class="mt-[12px]">Sign Up</Button>
     </form>
   </div>

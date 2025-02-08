@@ -1,22 +1,23 @@
 <script setup lang="ts">
 import { Input, Button } from "~/shared/ui";
+import Checkbox from "~/shared/ui/checkbox/checkbox.vue";
 
 interface FormData {
   email: string;
   gender?: string;
   password: string;
   confirmPassword?: string;
-  login?: boolean;
 }
 
 const formData = reactive<FormData>({
   email: "",
+  gender: "",
   password: "",
-  login: true,
+  confirmPassword: "",
 });
 
 const onInput = (value: string, field: keyof typeof formData) => {
-  formData[field] = value as never;
+  formData[field] = value;
 };
 
 const handlerSubmit = async (e: Event) => {
@@ -38,16 +39,39 @@ const handlerSubmit = async (e: Event) => {
         name="email"
         @update:model-value="(val) => onInput(val, 'email')"
       />
+
+      <div class="my-[10px]">
+        <Checkbox
+        :selected="formData.gender === 'male'"
+        @select="() => (formData.gender = 'male')"
+      >
+        Male
+      </Checkbox>
+      <Checkbox
+        :selected="formData.gender === 'female'"
+        @select="() => (formData.gender = 'female')"
+      >
+        Female
+      </Checkbox>
+      </div>
+
       <Input
         label="Password"
         name="password"
         @update:model-value="(val) => onInput(val, 'password')"
       />
-      <Button class="mt-[12px]">Sign In</Button>
+      <Input
+        label="Confirm password"
+        name="password"
+        @update:model-value="(val) => onInput(val, 'confirmPassword')"
+      />
+      <Button class="mt-[12px]">Sign Up</Button>
     </form>
     <div class="mt-[12px] text-[14px]">
-      <p>New to Fake Web Store?</p>
-      <NuxtLink to="/register" class="login-link"> Create an account</NuxtLink>
+      <p>
+        Already have an account?
+        <NuxtLink to="/login" class="register-link"> Log in</NuxtLink>
+      </p>
     </div>
   </div>
 </template>
@@ -57,10 +81,10 @@ const handlerSubmit = async (e: Event) => {
   @apply max-w-[440px] mx-auto p-[24px] rounded-[12px] border-[1px] border-[--border-login];
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-.login-link {
+.register-link {
   @apply text-[--link] decoration-[none] transition-colors duration-300;
 
-  &:hover{
+  &:hover {
     @apply text-[--link-hover];
   }
 }

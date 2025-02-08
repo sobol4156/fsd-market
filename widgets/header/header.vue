@@ -8,7 +8,7 @@ import { Icon } from '@/shared/ui/icons';
       <Icon class="header__logo" name="logo" type="brand" :w="70" :h="70" @click="navigateTo('/')" />
     </div>
     <div class="header__right">
-      <Icon class="header__profile" name="profile" type="info" :w="30" :h="30" />
+      <Icon class="header__profile" name="profile" type="info" :w="30" :h="30" @click="navigateTo('/login')" />
       <Icon class="header__cart" name="shopping-cart" type="info" :w="30" :h="30"  @click="navigateTo('/cart')"/>
     </div>
   </div>

@@ -14,6 +14,9 @@ export default defineNuxtConfig({
     '@app': './app',
     '@shared': './shared',
   },
+  runtimeConfig: {
+    secretKey: process.env['VITE_SECRET_KEY']
+  },
   
   vite: {
     vue: {},

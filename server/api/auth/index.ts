@@ -1,13 +1,17 @@
 import Database from 'better-sqlite3';
 import bcrypt from 'bcrypt';
-const db = new Database('users.db');
-db.exec(`CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, email TEXT, password TEXT);`);
-
+import jwt from 'jsonwebtoken';
 interface User {
   id: number;
   email: string;
   password: string;
 }
+const runtimeConfig = useRuntimeConfig()
+
+const db = new Database('users.db');
+db.exec(`CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, email TEXT, password TEXT);`);
+
+const SECRET_KEY = runtimeConfig.secretKey;
 // db.prepare('DROP TABLE IF EXISTS users').run(); //удалить db
 export default defineEventHandler(async (event) => {
   if (event.node.req.method !== 'POST') {
@@ -25,8 +29,15 @@ export default defineEventHandler(async (event) => {
       if (!isPasswordValid) {
         return { error: 'Неверный email или пароль' };
       }
+      const token = jwt.sign({ email: existingUser.email, id: existingUser.id }, SECRET_KEY, {
+        expiresIn: '1h',
+      });
 
-      return { message: 'Вход выполнен', user: { email } };
+      return {
+        message: 'Вход выполнен',
+        user: { email: existingUser.email },
+        token,
+      };
     } else {
       return { error: 'Неверный email или пароль' };
     }

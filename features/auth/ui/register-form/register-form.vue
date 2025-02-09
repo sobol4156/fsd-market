@@ -1,20 +1,17 @@
 <script setup lang="ts">
 import { Input, Button } from "~/shared/ui";
 import Checkbox from "~/shared/ui/checkbox/checkbox.vue";
+import { useAuth } from "~/shared/lib/use";
+import type { ApiAuth, RegisterData} from "~/features/auth/model";
 
-interface FormData {
-  email: string;
-  gender?: string;
-  password: string;
-  confirmPassword?: string;
-}
-
-const formData = reactive<FormData>({
+const formData = reactive<RegisterData>({
   email: "",
   gender: "",
   password: "",
   confirmPassword: "",
 });
+
+const { fetchUser } = useAuth();
 
 const onInput = (value: string, field: keyof typeof formData) => {
   formData[field] = value;
@@ -23,12 +20,18 @@ const onInput = (value: string, field: keyof typeof formData) => {
 const handlerSubmit = async (e: Event) => {
   e.preventDefault();
   console.log(formData);
-  const response = await $fetch(`/api/auth`, {
+  const response = await $fetch<ApiAuth>(`/api/auth`, {
     method: "POST",
     body: formData,
+    credentials: 'include'
   });
-  console.log(response);
+  
+  if (response.status) {
+    await fetchUser()
+    navigateTo('/profile')
+  }
 };
+
 </script>
 
 <template>

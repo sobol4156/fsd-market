@@ -12,6 +12,7 @@ const db = new Database('users.db');
 db.exec(`CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, email TEXT, password TEXT);`);
 
 const SECRET_KEY = runtimeConfig.secretKey;
+const isDev = process.env.NODE_ENV !== 'production';
 // db.prepare('DROP TABLE IF EXISTS users').run(); //удалить db
 export default defineEventHandler(async (event) => {
   if (event.node.req.method !== 'POST') {
@@ -33,10 +34,17 @@ export default defineEventHandler(async (event) => {
         expiresIn: '1h',
       });
 
+      setCookie(event, 'token', token, {
+        httpOnly: true, 
+        secure: !isDev,
+        sameSite: isDev ? 'lax' : 'strict',
+        path: '/',
+        maxAge: 3600,
+      });
+
       return {
         message: 'Вход выполнен',
-        user: { email: existingUser.email },
-        token,
+        status: true,
       };
     } else {
       return { error: 'Неверный email или пароль' };
@@ -52,8 +60,20 @@ export default defineEventHandler(async (event) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const stmt = db.prepare('INSERT INTO users (email, password) VALUES (?, ?)');
-    stmt.run(email, hashedPassword);
+    const info = stmt.run(email, hashedPassword);
+    const userId = info.lastInsertRowid;
 
-    return { message: 'Пользователь сохранён', user: { email } }
+    const token = jwt.sign({ email: email, id: userId }, SECRET_KEY, {
+      expiresIn: '1h',
+    });
+
+    setCookie(event, 'token', token, {
+      httpOnly: true, 
+      secure: !isDev,
+      sameSite: isDev ? 'lax' : 'strict',
+      path: '/',
+      maxAge: 3600,
+    });
+    return { message: 'Пользователь сохранён'}
   }
 })

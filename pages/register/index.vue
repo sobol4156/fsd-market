@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { LayoutMain } from "~/widgets/layouts";
 import { RegisterForm } from "~/features/auth";
+
+definePageMeta({
+  middleware: 'auth'
+})
 </script>
 
 <template>

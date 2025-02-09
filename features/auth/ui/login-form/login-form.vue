@@ -1,15 +1,8 @@
 <script setup lang="ts">
 import { Input, Button } from "~/shared/ui";
+import type { ApiAuth, LoginData } from "~/features/auth/model";
 
-interface FormData {
-  email: string;
-  gender?: string;
-  password: string;
-  confirmPassword?: string;
-  login?: boolean;
-}
-
-const formData = reactive<FormData>({
+const formData = reactive<LoginData>({
   email: "",
   password: "",
   login: true,
@@ -21,13 +14,18 @@ const onInput = (value: string, field: keyof typeof formData) => {
 
 const handlerSubmit = async (e: Event) => {
   e.preventDefault();
-  console.log(formData);
-  const response = await $fetch(`/api/auth`, {
+
+  const response = await $fetch<ApiAuth>(`/api/auth`, {
     method: "POST",
     body: formData,
+    credentials: "include",
   });
-  console.log(response);
+
+  if (response.status) {
+    navigateTo('/profile')
+  }
 };
+
 </script>
 
 <template>
@@ -60,7 +58,7 @@ const handlerSubmit = async (e: Event) => {
 .login-link {
   @apply text-[--link] decoration-[none] transition-colors duration-300;
 
-  &:hover{
+  &:hover {
     @apply text-[--link-hover];
   }
 }

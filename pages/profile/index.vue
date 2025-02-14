@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { LayoutMain } from "~/widgets/layouts";
-import { useAuth } from "~/shared/lib/use";
+import { useAuth } from "~/shareds/lib/use";
 
 const { user, fetchUser } = useAuth();
 

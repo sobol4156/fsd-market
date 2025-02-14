@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IconProps } from '@/shared/types';
+import type { IconProps } from '@/shareds/types';
 
 import type { SpritesMap } from './sprite.h';
 

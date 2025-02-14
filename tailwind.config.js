@@ -3,7 +3,7 @@
 export default {
   content: [
     './app/*.{vue,js,ts}',
-    './shared/**/*.vue',
+    './shareds/**/*.vue',
     './widgets/**/*.vue',
     './features/**/*.vue',
     './entities/**/*.vue',

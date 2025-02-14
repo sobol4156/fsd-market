@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button, Checkbox } from '~/shared/ui';
+import { Button, Checkbox } from '@/shareds/ui';
 
 const selectCheckbox = ref<boolean>(false);
 

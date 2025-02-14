@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   alias: {
     '@widgets': './widgets',
     '@app': './app',
-    '@shared': './shared',
+    '@shareds': './shareds',
   },
   runtimeConfig: {
     secretKey: process.env['VITE_SECRET_KEY']
@@ -21,10 +21,10 @@ export default defineNuxtConfig({
     vue: {},
     plugins: [
       svg({
-        root: 'shared/ui/icons/assets',
+        root: 'shareds/ui/icons/assets',
         group: true,
         output: 'public/sprite',
-        metadata: 'shared/ui/icons/sprite.h.ts'
+        metadata: 'shareds/ui/icons/sprite.h.ts'
       })
     ],
     css: {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Input, Button } from "~/shared/ui";
+import { Input, Button } from "~/shareds/ui";
 import type { ApiAuth, LoginData } from "~/features/auth/model";
 
 const formData = reactive<LoginData>({

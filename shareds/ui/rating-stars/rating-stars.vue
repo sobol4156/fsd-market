@@ -13,9 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import { Icon } from "@/shared/ui/icons";
+import { Icon } from "@/shareds/ui/icons";
 import { starSystem } from "./model";
-import { EAppPixelSize } from "@/shared/lib/types/app";
+import { EAppPixelSize } from "@/shareds/lib/types/app";
 
 const props = withDefaults(
   defineProps<{

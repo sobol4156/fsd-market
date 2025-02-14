@@ -2,8 +2,8 @@
 import type {
   CheckboxEmits,
   CheckboxProps,
-} from "~/shared/types";
-import { Icon } from "~/shared/ui";
+} from "~/shareds/types";
+import { Icon } from "~/shareds/ui";
 
 defineProps<CheckboxProps>();
 defineEmits<CheckboxEmits>();

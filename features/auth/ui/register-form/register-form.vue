@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Input, Button } from "~/shared/ui";
-import Checkbox from "~/shared/ui/checkbox/checkbox.vue";
-import { useAuth } from "~/shared/lib/use";
+import { Input, Button } from "~/shareds/ui";
+import Checkbox from "~/shareds/ui/checkbox/checkbox.vue";
+import { useAuth } from "~/shareds/lib/use";
 import type { ApiAuth, RegisterData} from "~/features/auth/model";
 
 const formData = reactive<RegisterData>({

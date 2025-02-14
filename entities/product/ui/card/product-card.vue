@@ -18,8 +18,8 @@
 </template>
 
 <script setup lang="ts">
-import { ImagesSwiper, RatingStars } from "~/shared/ui";
-import { EAppPixelSize } from "~/shared/lib/types/app";
+import { ImagesSwiper, RatingStars } from "~/shareds/ui";
+import { EAppPixelSize } from "~/shareds/lib/types/app";
 import type { Product } from "~/entities/product";
 import { useCartStore } from "~/entities/cart";
 

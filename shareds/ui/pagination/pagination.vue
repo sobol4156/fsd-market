@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Icon, Button } from "~/shared/ui";
+import { Icon, Button } from "~/shareds/ui";
 
 const props = defineProps<{ pages: number; currentPage: number }>();
 const emit = defineEmits(["changePage"]);

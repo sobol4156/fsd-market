@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRefValue } from "~/shared/lib/use";
+import { useRefValue } from "~/shareds/lib/use";
 
 interface IInput {
   modelValue?: string;

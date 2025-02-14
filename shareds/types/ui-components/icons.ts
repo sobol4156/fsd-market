@@ -1,4 +1,4 @@
-import type { SpritesMap } from '@/shared/ui/icons/sprite.h';
+import type { SpritesMap } from '@/shareds/ui/icons/sprite.h';
 
 export interface IconProps<T extends keyof SpritesMap> {
   name: SpritesMap[T];

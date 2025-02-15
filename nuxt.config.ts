@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   pages: true,
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxthub/core'],
+  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt'],
   alias: {
     '@widgets': './widgets',
     '@app': './app',

@@ -2,7 +2,7 @@
 import { ProductCard } from "~/entities/product";
 import Pagination from "~/shareds/ui/pagination/pagination.vue";
 import { useProductStore, type Product } from "~/entities/product";
-import { SkeletonProduct } from "~/shareds/ui/skeletons";
+import SkeletonProduct from "~/shareds/ui/skeletons";
 
 const storeProduct = useProductStore();
 const currentPage = ref<number>(1);
@@ -26,7 +26,7 @@ const pages = computed(() => {
   if (storeProduct.productList) {
     return Math.ceil(storeProduct.productList?.length / countItemsOnPage);
   }
-  return 0
+  return 0;
 });
 
 const checkingStore = async () => {
@@ -56,7 +56,11 @@ const checkingStore = async () => {
       <SkeletonProduct v-for="i in 16" />
     </template>
   </div>
-  <Pagination :pages="pages" :currentPage="currentPage" @changePage="(page) => currentPage = page"/>
+  <Pagination
+    :pages="pages"
+    :currentPage="currentPage"
+    @changePage="(page) => (currentPage = page)"
+  />
 </template>
 
 <style scoped lang="scss">

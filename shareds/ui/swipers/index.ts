@@ -1,1 +1,3 @@
-export * from './images-swiper'
+import ImagesSwiper from "./images-swiper.vue";
+
+export default ImagesSwiper

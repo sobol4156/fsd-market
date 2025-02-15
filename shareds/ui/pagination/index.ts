@@ -1,3 +1,3 @@
 import Pagination from "./pagination.vue";
 
-export { Pagination }
+export default Pagination 

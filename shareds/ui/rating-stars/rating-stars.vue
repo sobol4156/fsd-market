@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { Icon } from "@/shareds/ui/icons";
+import Icon from "@/shareds/ui/icons";
 import { starSystem } from "./model";
 import { EAppPixelSize } from "@/shareds/lib/types/app";
 
@@ -31,7 +31,7 @@ const formatRating = computed(() => Math.round(props.rating));
 </script>
 
 <style lang="scss">
-.rating-stars{
+.rating-stars {
   @apply flex gap-[5px];
 }
 </style>

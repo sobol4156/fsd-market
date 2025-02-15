@@ -1,3 +1,3 @@
 import RatingStars from "./rating-stars.vue";
 
-export {RatingStars}
+export default RatingStars

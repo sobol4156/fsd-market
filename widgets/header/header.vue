@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Icon } from "@/shareds/ui/icons";
+import { Icon } from "@/shareds/ui";
 import { useAuth } from "@/shareds/lib/use";
 
 const { user, fetchUser } = useAuth();

@@ -1,19 +1,27 @@
-import Database from 'better-sqlite3';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-interface User {
-  id: number;
-  email: string;
-  password: string;
-}
+
+import { createClient } from "@supabase/supabase-js";
 const runtimeConfig = useRuntimeConfig()
 
-const db = new Database('users.db');
-db.exec(`CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, email TEXT, password TEXT);`);
+interface Database {
+  public: {
+    Tables: {
+      users: {
+        Row: { id: number; email: string; password: string, gender:string };
+        Insert: { email: string; password: string };
+        Update: { email?: string; password?: string };
+        Relationships: [];
+      };
+    };
+  };
+}
+
+const supabase = createClient<Database>(runtimeConfig.public.supabaseUrl, runtimeConfig.public.supabaseKey)
 
 const SECRET_KEY = runtimeConfig.secretKey;
 const isDev = process.env.NODE_ENV !== 'production';
-// db.prepare('DROP TABLE IF EXISTS users').run(); //удалить db
+
 export default defineEventHandler(async (event) => {
   if (event.node.req.method !== 'POST') {
     return { error: 'The methond is not allowed' }
@@ -21,8 +29,8 @@ export default defineEventHandler(async (event) => {
 
   const body = await readBody(event)
   const { email, password, login } = body;
-  const existingUser = db.prepare('SELECT * FROM users WHERE email = ?').get(email) as User | undefined;
 
+  const { data: existingUser, error: findError } = await supabase.from('users').select('*').eq('email', email).single()
   // Вход
   if (login) {
     if (existingUser) {
@@ -35,7 +43,7 @@ export default defineEventHandler(async (event) => {
       });
 
       setCookie(event, 'token', token, {
-        httpOnly: true, 
+        httpOnly: true,
         secure: !isDev,
         sameSite: isDev ? 'lax' : 'strict',
         path: '/',
@@ -59,21 +67,27 @@ export default defineEventHandler(async (event) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const stmt = db.prepare('INSERT INTO users (email, password) VALUES (?, ?)');
-    const info = stmt.run(email, hashedPassword);
-    const userId = info.lastInsertRowid;
+    const { data, error } = await supabase.from("users").insert([
+      { email, password: hashedPassword },
+    ]).select("*");;
 
-    const token = jwt.sign({ email: email, id: userId }, SECRET_KEY, {
+    if (error) {
+      return { error: `Ошибка создания пользователя: ${error.message}` };
+    }
+
+    const userId = data?.[0]?.id;
+
+    const token = jwt.sign({ email, id: userId }, SECRET_KEY, {
       expiresIn: '1h',
     });
 
     setCookie(event, 'token', token, {
-      httpOnly: true, 
+      httpOnly: true,
       secure: !isDev,
       sameSite: isDev ? 'lax' : 'strict',
       path: '/',
       maxAge: 3600,
     });
-    return { message: 'Пользователь сохранён'}
+    return { message: 'Пользователь сохранён' }
   }
 })

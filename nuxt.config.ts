@@ -12,7 +12,11 @@ export default defineNuxtConfig({
     '@shareds': './shareds',
   },
   runtimeConfig: {
-    secretKey: process.env['VITE_SECRET_KEY']
+    secretKey: process.env['VITE_SECRET_KEY'],
+    public: {
+      supabaseUrl:process.env['SUPABASE_URL'],
+      supabaseKey:process.env['SUPABASE_KEY']
+    }
   },
   vite: {
     vue: {},

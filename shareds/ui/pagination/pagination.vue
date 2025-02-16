@@ -35,6 +35,7 @@ const changePage = (page: number) => {
     <div class="pagination__btns">
       <Button
         :disabled="currentPage === 1"
+        class="pagination__btn"
         @click="changePage(currentPage - 1)"
       >
         <Icon
@@ -46,17 +47,22 @@ const changePage = (page: number) => {
         />
       </Button>
 
-      <Button @click="changePage(1)">1</Button>
-      <div v-if="currentPage >= 5">...</div>
+      <Button class="pagination__btn" @click="changePage(1)">1</Button>
+      <div class="pagination__dots" v-if="currentPage >= 5">. . .</div>
 
       <template v-for="numberPage in visibleBtnPages" :key="numberPage">
-        <Button @click="changePage(numberPage)">{{ numberPage }}</Button>
+        <Button class="pagination__btn" @click="changePage(numberPage)">{{
+          numberPage
+        }}</Button>
       </template>
 
-      <div v-if="currentPage < pages - 3">...</div>
-      <Button @click="changePage(pages)">{{ pages }}</Button>
+      <div class="pagination__dots" v-if="currentPage < pages - 3">. . .</div>
+      <Button class="pagination__btn" @click="changePage(pages)">{{
+        pages
+      }}</Button>
 
       <Button
+        class="pagination__btn"
         :disabled="currentPage === pages"
         @click="changePage(currentPage + 1)"
       >
@@ -77,7 +83,11 @@ const changePage = (page: number) => {
   @apply mb-[50px];
 
   &__btns {
-    @apply flex items-center gap-[5px];
+    @apply flex items-end gap-[5px];
+  }
+
+  &__btn {
+    @apply max-w-[45px];
   }
 
   &__icon {

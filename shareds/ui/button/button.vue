@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<IButton>(), {
 
 <style scoped lang="scss">
 .button {
-  @apply p-[10px] rounded-[10px] text-white bg-[--color-black-800] transition-colors;
+  @apply p-[10px] w-full rounded-[10px] text-white bg-[--color-black-800] transition-colors;
 
   &:hover {
     @apply bg-[--color-black-700];

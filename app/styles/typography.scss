@@ -1,0 +1,25 @@
+@layer components {
+  /* H1 font/heading/large/semibold/desktop */
+  .heading-large {
+    @apply text-large md:text-prelarge font-semibold leading-1 tracking-[-3.2px] md:tracking-[-2.8px];
+  }
+  /* H2 font/heading/default/semibold/desktop */
+  .heading-default {
+    @apply text-3xl  md:text-2xl font-semibold leading-2 tracking-[-0.544px] md:tracking-[-0.408px];
+  }
+  /* H3 font/heading/small/semibold/desktop */
+  .heading-small {
+    @apply text-2xl md:text-xl font-semibold leading-3 tracking-[-0.408px] md:tracking-[-0.304px];
+  }
+  
+  /* body large */
+  .body-large-regular {
+    @apply text-xl md:text-big leading-1 tracking-[-0.34px] md:tracking-[-0.306px];
+  }
+  .body-large-medium {
+    @apply text-xl md:text-big font-medium leading-1 tracking-[-0.34px] md:tracking-[-0.306px];
+  }
+  .body-large-semibold {
+    @apply text-xl md:text-big font-semibold leading-1 tracking-[-0.34px] md:tracking-[-0.306px];
+  }
+}

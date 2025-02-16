@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import type { IconProps } from '@/shareds/types';
+import type { IconProps } from "@/shareds/types";
 
-import type { SpritesMap } from './sprite.h';
+import type { SpritesMap } from "./sprite.h";
 
 const props = defineProps<IconProps<keyof SpritesMap>>();
 </script>
 
 <template>
   <svg class="icon" :width="w" :height="h">
-    <use
-      :xlink:href="`/sprite/${props.type}.svg#${props.name}`"
-    />
+    <use :xlink:href="`/sprite/${props.type}.svg#${props.name}`" />
   </svg>
 </template>
 

@@ -1,3 +1,3 @@
-import ProductList from './ui/product-list.vue';
+import ProductList from "./ui/product-list.vue";
 
 export { ProductList };

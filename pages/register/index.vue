@@ -3,8 +3,8 @@ import { LayoutMain } from "~/widgets/layouts";
 import { RegisterForm } from "~/features/auth";
 
 definePageMeta({
-  middleware: 'auth'
-})
+  middleware: "auth"
+});
 </script>
 
 <template>

@@ -1,12 +1,11 @@
-import type {ResponseUser, User} from './types'
+import type { ResponseUser, User } from "./types";
 
 export const useAuth = () => {
-
-  const user = useState<User | null>('user', () => null);
+  const user = useState<User | null>("user", () => null);
 
   const fetchUser = async () => {
-    const { data } = await useFetch<ResponseUser>('/api/me', {
-      credentials: 'include',
+    const { data } = await useFetch<ResponseUser>("/api/me", {
+      credentials: "include"
     });
 
     if (data.value?.user) {

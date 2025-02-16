@@ -1,7 +1,7 @@
 export interface LoginData {
   email: string;
   password: string;
-  login:boolean
+  login: boolean;
 }
 
 export interface RegisterData {
@@ -12,6 +12,6 @@ export interface RegisterData {
 }
 
 export interface ApiAuth {
-  status: boolean,
-  message: string
+  status: boolean;
+  message: string;
 }

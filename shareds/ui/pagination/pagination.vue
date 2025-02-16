@@ -14,10 +14,9 @@ const visibleBtnPages = computed(() => {
   const centerPages = () => {
     if (props.currentPage <= 4) {
       return arrayPages.slice(1, 5);
-    } else if( props.pages - 4 < props.currentPage){
+    } else if (props.pages - 4 < props.currentPage) {
       return arrayPages.slice(props.pages - 5, props.pages);
-    }
-    else {
+    } else {
       return arrayPages.slice(props.currentPage - 2, props.currentPage + 1);
     }
   };

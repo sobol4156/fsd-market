@@ -5,7 +5,7 @@ import type { ApiAuth, LoginData } from "~/features/auth/model";
 const formData = reactive<LoginData>({
   email: "",
   password: "",
-  login: true,
+  login: true
 });
 
 const onInput = (value: string, field: keyof typeof formData) => {
@@ -18,14 +18,13 @@ const handlerSubmit = async (e: Event) => {
   const response = await $fetch<ApiAuth>(`/api/auth`, {
     method: "POST",
     body: formData,
-    credentials: "include",
+    credentials: "include"
   });
 
   if (response.status) {
-    navigateTo('/profile')
+    navigateTo("/profile");
   }
 };
-
 </script>
 
 <template>

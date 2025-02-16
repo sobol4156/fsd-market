@@ -2,13 +2,13 @@
 import { Input, Button } from "~/shareds/ui";
 import Checkbox from "~/shareds/ui/checkbox/checkbox.vue";
 import { useAuth } from "~/shareds/lib/use";
-import type { ApiAuth, RegisterData} from "~/features/auth/model";
+import type { ApiAuth, RegisterData } from "~/features/auth/model";
 
 const formData = reactive<RegisterData>({
   email: "",
   gender: "",
   password: "",
-  confirmPassword: "",
+  confirmPassword: ""
 });
 
 const { fetchUser } = useAuth();
@@ -23,15 +23,14 @@ const handlerSubmit = async (e: Event) => {
   const response = await $fetch<ApiAuth>(`/api/auth`, {
     method: "POST",
     body: formData,
-    credentials: 'include'
+    credentials: "include"
   });
-  
+
   if (response.status) {
-    await fetchUser()
-    navigateTo('/profile')
+    await fetchUser();
+    navigateTo("/profile");
   }
 };
-
 </script>
 
 <template>
@@ -45,17 +44,17 @@ const handlerSubmit = async (e: Event) => {
 
       <div class="my-[10px]">
         <Checkbox
-        :selected="formData.gender === 'male'"
-        @select="() => (formData.gender = 'male')"
-      >
-        Male
-      </Checkbox>
-      <Checkbox
-        :selected="formData.gender === 'female'"
-        @select="() => (formData.gender = 'female')"
-      >
-        Female
-      </Checkbox>
+          :selected="formData.gender === 'male'"
+          @select="() => (formData.gender = 'male')"
+        >
+          Male
+        </Checkbox>
+        <Checkbox
+          :selected="formData.gender === 'female'"
+          @select="() => (formData.gender = 'female')"
+        >
+          Female
+        </Checkbox>
       </div>
 
       <Input

@@ -12,7 +12,7 @@ const emit = defineEmits(["update:modelValue"]);
 
 const props = withDefaults(defineProps<IInput>(), {
   modelValue: "",
-  type: "text",
+  type: "text"
 });
 
 const { value: inputValue, setValue } = useRefValue(props.modelValue);
@@ -59,7 +59,7 @@ function getValue(event: Event) {
     }
 
     &::placeholder {
-      @apply text-[--text-input-placeholder]
+      @apply text-[--text-input-placeholder];
     }
 
     &:disabled {

@@ -12,15 +12,14 @@ onMounted(() => {
 });
 
 const deleteOrder = (id: number) => {
-const cartKey = "cart-products";
- const orders = JSON.parse(localStorage.getItem(cartKey) || '[]')
+  const cartKey = "cart-products";
+  const orders = JSON.parse(localStorage.getItem(cartKey) || "[]");
 
- const filtered = orders.filter((el:Product) => id !== el.id )
+  const filtered = orders.filter((el: Product) => id !== el.id);
 
- cartStore.setOrderItems(filtered)
- localStorage.setItem(cartKey, JSON.stringify(filtered))
-}
-
+  cartStore.setOrderItems(filtered);
+  localStorage.setItem(cartKey, JSON.stringify(filtered));
+};
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 export interface CheckboxEmits {
-  (e: 'select'):void
+  (e: "select"): void;
 }
 
 export interface CheckboxProps {

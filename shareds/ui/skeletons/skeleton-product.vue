@@ -15,9 +15,9 @@
 .skeleton-product {
   @apply relative h-[394px] flex flex-col justify-between p-[10px] gap-[10px];
 
-&__text{
-  @apply flex flex-col gap-[5px];
-}
+  &__text {
+    @apply flex flex-col gap-[5px];
+  }
 
   &__price {
     @apply w-[50px];

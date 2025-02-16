@@ -1,10 +1,15 @@
-.skeleton{
+.skeleton {
   @apply relative inline-block overflow-hidden cursor-default;
 
-  &::after{
+  &::after {
     content: "";
     @apply absolute inset-0 z-[100];
-    background: linear-gradient(100deg, rgba(244, 247, 255, 0.03) 25%, rgba(244, 247, 255, 0.05) 50%, rgba(244, 247, 255, 0.03) 75%);
+    background: linear-gradient(
+      100deg,
+      rgba(244, 247, 255, 0.03) 25%,
+      rgba(244, 247, 255, 0.05) 50%,
+      rgba(244, 247, 255, 0.03) 75%
+    );
     background-size: 150% 100%;
     animation: shimmer 1s infinite cubic-bezier(0.28, -0.02, 0.58, 1);
   }
@@ -38,7 +43,7 @@
     }
   }
 
-  &-product{
+  &-product {
     @apply w-full h-full rounded-[15px];
   }
 }

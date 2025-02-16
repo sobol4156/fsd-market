@@ -1,2 +1,2 @@
-export * from './icons';
-export * from './checkbox'
+export * from "./icons";
+export * from "./checkbox";

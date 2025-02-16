@@ -5,7 +5,7 @@ interface IButton {
 
 const props = withDefaults(defineProps<IButton>(), {
   disabled: false
-})
+});
 </script>
 
 <template>
@@ -17,14 +17,14 @@ const props = withDefaults(defineProps<IButton>(), {
 </template>
 
 <style scoped lang="scss">
-.button{
+.button {
   @apply p-[10px] rounded-[10px] text-white bg-[--color-black-800] transition-colors;
 
-  &:hover{
-    @apply bg-[--color-black-700]
+  &:hover {
+    @apply bg-[--color-black-700];
   }
-  &:active{
-    @apply bg-[--color-black-600]
+  &:active {
+    @apply bg-[--color-black-600];
   }
 }
 </style>

@@ -23,7 +23,7 @@ const props = withDefaults(
     size?: EAppPixelSize;
   }>(),
   {
-    size: EAppPixelSize.sm,
+    size: EAppPixelSize.sm
   }
 );
 

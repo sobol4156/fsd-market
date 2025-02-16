@@ -1,1 +1,1 @@
-export const starSystem = 5
+export const starSystem = 5;

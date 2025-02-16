@@ -1,15 +1,14 @@
 <script setup lang="ts">
+import { Icon } from "~/shareds/ui";
 import type { Product } from "~/entities/product";
 import type { DeleteEmit } from "../../model";
 
-const props = defineProps<{
-  order: Product;
-}>();
+const props = defineProps<{ order: Product }>();
 defineEmits<DeleteEmit>();
 </script>
 
 <template>
-  <div class="order" @click="$emit('delete-order', props.order.id)">
+  <div class="order">
     <img
       class="order__img"
       :src="props.order.images[0].src"
@@ -19,6 +18,14 @@ defineEmits<DeleteEmit>();
     <span class="order__price"
       >{{ props.order.newPrice }}$ <del>{{ props.order.oldPrice }}$</del></span
     >
+    <Icon
+      class="order__icon"
+      name="x"
+      type="action"
+      :w="40"
+      :h="40"
+      @click="$emit('delete-order', props.order.id)"
+    />
   </div>
 </template>
 
@@ -33,6 +40,16 @@ defineEmits<DeleteEmit>();
   }
   &__price {
     @apply text-[28px] ml-auto;
+  }
+  &__icon {
+    @apply fill-[white] p-2 rounded-[50%] cursor-pointer transition-colors;
+
+    &:hover {
+      @apply bg-[#292929]
+    }
+    &:active {
+      @apply bg-[#2e2e2e]
+    }
   }
 }
 </style>

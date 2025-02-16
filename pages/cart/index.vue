@@ -30,7 +30,7 @@ const deleteOrder = (order: Product) => {
           />
         </div>
         <aside class="cart-page__wallet">
-          <Wallet />
+          <Wallet :orders="orderItems" />
         </aside>
       </div>
     </div>

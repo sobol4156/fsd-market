@@ -4,8 +4,32 @@ import svg from "@neodx/svg/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   pages: true,
+  pwa: {
+    registerType: 'autoUpdate',
+    manifest: {
+      name: 'My Nuxt PWA',
+      short_name: 'NuxtPWA',
+      description: 'Прогрессивное веб-приложение на Nuxt 3',
+      theme_color: '#42b883',
+      icons: [
+        {
+          src: '/128.png',
+          sizes: '128x128',
+          type: 'image/png'
+        },
+        {
+          src: '/512.png',
+          sizes: '512x512',
+          type: 'image/png'
+        }
+      ]
+    },
+  },
+  workbox: {
+    globPatterns: ['**/*.{js,css,html,png,svg,ico}']
+  },
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", '@vite-pwa/nuxt'],
   alias: {
     "@widgets": "./widgets",
     "@app": "./app",

@@ -1,0 +1,20 @@
+{
+  "name": "My Nuxt PWA",
+  "short_name": "NuxtPWA",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#42b883",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

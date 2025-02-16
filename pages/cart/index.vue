@@ -11,14 +11,8 @@ onMounted(() => {
   if (!cartStore.orderItems?.length) cartStore.getOrderItems();
 });
 
-const deleteOrder = (id: number) => {
-  const cartKey = "cart-products";
-  const orders = JSON.parse(localStorage.getItem(cartKey) || "[]");
-
-  const filtered = orders.filter((el: Product) => id !== el.id);
-
-  cartStore.setOrderItems(filtered);
-  localStorage.setItem(cartKey, JSON.stringify(filtered));
+const deleteOrder = (order: Product) => {
+  cartStore.removeOrderItem(order);
 };
 </script>
 
@@ -32,7 +26,7 @@ const deleteOrder = (id: number) => {
             v-for="order in orderItems"
             :key="order.id"
             :order="order"
-            @delete-order="deleteOrder"
+            @delete-order="deleteOrder(order)"
           />
         </div>
         <aside class="cart-page__wallet">

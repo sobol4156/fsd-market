@@ -102,6 +102,6 @@ export default defineEventHandler(async (event) => {
       path: "/",
       maxAge: 3600
     });
-    return { message: "Пользователь сохранён" };
+    return { message: "Пользователь сохранён", status: true };
   }
 });
